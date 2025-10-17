@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Book Store</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f3f1f6;
+        }
+
+        header {
+            background: linear-gradient(90deg, #6a1b9a, #8e24aa);
+            color: white;
+            padding: 15px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.6em;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span {
+            margin-left: 10px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .search-box {
+            background-color: white;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            padding: 5px 12px;
+        }
+
+        .search-box input {
+            border: none;
+            outline: none;
+            padding: 6px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+        }
+
+        .search-box button {
+            background: none;
+            border: none;
+            font-size: 18px;
+            cursor: pointer;
+            color: #6a1b9a;
+        }
+
+        .cart-icon {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        h2.section-title {
+            text-align: center;
+            margin: 30px 0 10px;
+            color: #6a1b9a;
+        }
+
+        .book-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
+            padding: 20px 40px;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .book-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+
+        .book-card:hover {
+            transform: scale(1.03);
+        }
+
+        .book-card img {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        .book-card .info {
+            padding: 15px;
+            text-align: center;
+        }
+
+        .book-card h3 {
+            margin: 10px 0 5px;
+            font-size: 1.1em;
+            color: #333;
+        }
+
+        .book-card p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            color: #777;
+        }
+
+        .price {
+            color: #388e3c;
+            font-weight: bold;
+            margin: 8px 0;
+        }
+
+        .add-btn {
+            background-color: #6a1b9a;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        .add-btn:hover {
+            background-color: #4a116c;
+        }
+
+        footer {
+            background-color: #6a1b9a;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 40px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo">📘 <span>Book Store</span></div>
+    <div class="nav-right">
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search by section...">
+            <button onclick="searchSection()">🔍</button>
+        </div>
+        <div class="cart-icon">🛒</div>
+    </div>
+</header>
+
+<!-- Inspirational Section -->
+<h2 class="section-title" id="inspirational">🧠 Inspirational Books</h2>
+<div class="book-container">
+    <div class="book-card">
+        <img src="https://m.media-amazon.com/images/I/71aFt4+OTOL._SL1500_.jpg" alt="The Alchemist">
+        <div class="info">
+            <h3>The Alchemist</h3>
+            <p>by Paulo Coelho</p>
+            <div class="price">₹399</div>
+            <button class="add-btn">Add to Cart</button>
+        </div>
+    </div>
+    <div class="book-card">
+        <img src="https://m.media-amazon.com/images/I/91bYsX41DVL.SL1500.jpg" alt="Atomic Habits">
+        <div class="info">
+            <h3>Atomic Habits</h3>
+            <p>by James Clear</p>
+            <div class="price">₹499</div>
+            <button class="add-btn">Add to Cart</button>
+        </div>
+    </div>
+    <div class="book-card">
+        <img src="https://m.media-amazon.com/images/I/71m-MxdJ2WL.SL1000.jpg" alt="You Can Win">
+        <div class="info">
+            <h3>You Can Win</h3>
+            <p>by Shiv Khera</p>
+            <div class="price">₹350</div>
+            <button class="add-btn">Add to Cart</button>
+        </div>
+    </div>
+    <div class="book-card">
+        <img src="https://m.media-amazon.com/images/I/71UwSHSZRnS.SL1360.jpg" alt="Positive Thinking">
+        <div class="info">
+            <h3>Positive Thinking</h3>
+            <p>by Norman Vincent Peale</p>
+            <div class="price">₹320</div>
+            <button class="add-btn">Add to Cart</button>
+        </div>
+    </div>
+</div>
+
+<!-- Scientific Section -->
+<h2 class="section-title" id="scientific">🔬 Scientific Books</h2>
+<div class="book-container">
+    <div class="book-card">
+        <img src="https://m.media-amazon.com/images/I/71SxV6lG4YL.SL1500.jpg" alt="A Brief History of Time">
+        <div class="info">
+            <h3>A Brief History of Time</h3>
+            <p>by Stephen Hawking</p>
+            <div class="price">₹450</div>
+            <button class="add-btn">Add to Cart</button>
+        </div>
+    </div>
+    <div class="book-card">
+        <img src="https://m.media-amazon.com/images/I/713jIoMO3UL.SL1500.jpg" alt="Sapiens">
+        <div class="info">
+            <h3>Sapiens</h3>
+            <p>by Yuval Noah Harari</p>
+            <div class="price">₹499</div>
+            <button class="add-btn">Add to Cart</button>
+        </div>
+    </div>
+    <div class="book-card">
+        <img src="https://m.media-amazon.com/images/I/81vpsIs58WL.SL1500.jpg" alt="Cosmos">
+        <div class="info">
+            <h3>Cosmos</h3>
+            <p>by Carl Sagan</p>
+            <div class="price">₹470</div>
+            <button class="add-btn">Add to Cart</button>
+        </div>
+    </div>
+</div>
+
+<!-- Historical Section -->
+<h2 class="section-title" id="historical">🏛 Historical Books</h2>
+<div class="book-container">
+    <div class="book-card">
+        <img src="https://m.media-amazon.com/images/I/91uwocAMtSL.SL1500.jpg" alt="Wings of Fire">
+        <div class="info">
+            <h3>Wings of Fire</h3>
+            <p>by A.P.J. Abdul Kalam</p>
+            <div class="price">₹299</div>
+            <button class="add-btn">Add to Cart</button>
+        </div>
+    </div>
+    <div class="book-card">
+        <img src="https://m.media-amazon.com/images/I/71l2rN96F9L.SL1500.jpg" alt="India After Gandhi">
+        <div class="info">
+            <h3>India After Gandhi</h3>
+            <p>by Ramachandra Guha</p>
+            <div class="price">₹580</div>
+            <button class="add-btn">Add to Cart</button>
+        </div>
+    </div>
+    <div class="book-card">
+        <img src="https://m.media-amazon.com/images/I/81H6F8sH2BL.SL1500.jpg" alt="The Discovery of India">
+        <div class="info">
+            <h3>The Discovery of India</h3>
+            <p>by Jawaharlal Nehru</p>
+            <div class="price">₹430</div>
+            <button class="add-btn">Add to Cart</button>
+        </div>
+    </div>
+</div>
+
+<footer>
+    "A room without books is like a body without a soul." — Marcus Tullius Cicero
+</footer>
+
+<script>
+    function searchSection() {
+        const input = document.getElementById("searchInput").value.trim().toLowerCase();
+        if (input.includes("inspirational")) {
+            document.getElementById("inspirational").scrollIntoView({ behavior: "smooth" });
+        } else if (input.includes("scientific")) {
+            document.getElementById("scientific").scrollIntoView({ behavior: "smooth" });
+        } else if (input.includes("historical")) {
+            document.getElementById("historical").scrollIntoView({ behavior: "smooth" });
+        } else {
+            alert("Section not found. Try 'Inspirational', 'Scientific' or 'Historical'.");
+        }
+    }
+
+    // Optional: allow pressing Enter to trigger search
+    document.getElementById("searchInput").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            searchSection();
+        }
+    });
+</script>
+
+</body>
+</html>
+
